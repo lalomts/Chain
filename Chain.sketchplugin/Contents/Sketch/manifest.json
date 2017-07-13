@@ -1,0 +1,27 @@
+{
+  "name": "Chain",
+  "description": "Creates color relations between colors.",
+  "author": "Lalo Mrtnz",
+  "homepage": "https://github.com/LaloMrtnz/Chain",
+  "version": "0.0.1",
+  "identifier": "com.lalomrntz.sketch.chain",
+  "compatibleVersion": "41",
+  "bundleVersion": "1.0",
+  "commands" : [
+    {
+      "name" : "Generate Color Chain",
+      "script" : "Chain.cocoascript",
+      "handler" : "generateChain",
+      "shortcut" : "cmd ctrl alt c",
+      "identifier" : "generateChain"
+    },
+  ],
+
+  "menu" : {
+    "title": "Chain",
+    "items" : [
+      "generateChain",
+    ],
+  },
+
+}
