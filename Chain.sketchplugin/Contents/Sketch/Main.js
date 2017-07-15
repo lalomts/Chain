@@ -1,13 +1,31 @@
-var generateChain = function(context) {
+var generateChain = function(context, type) {
 
-	initContext(context);
+	if (context.selection.count() >= 2) {
 
-	if (selection.count() >= 2) {
-
-		let guideColor = selection[0].style().fills().firstObject().color();
-
-		selection[1].style().fills().firstObject().color = transformColor(guideColor, -0.15, 1, 0.6, 1);
-
+		let manager = new ChainManager(context); 
+		manager.launchChainCreator(type);
 	};
-
 };
+
+
+var generateHueChain = function(context) {
+	generateChain(context, "Hue");
+};
+
+var generateSaturationChain = function(context) {
+	generateChain(context, "Saturation");
+};
+
+var generateBrightnessChain = function(context) {
+	generateChain(context, "Brightness");
+};
+
+var generateAlphaChain = function(context) {
+	generateChain(context, "Alpha");
+};
+
+var updateChainsInLayers = function(context) {
+	let manager = new ChainManager(context); 
+	manager.updateChainInSelectedLayers();
+}
+

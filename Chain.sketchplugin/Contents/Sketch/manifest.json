@@ -9,18 +9,50 @@
   "bundleVersion": "1.0",
   "commands" : [
     {
-      "name" : "Generate Color Chain",
+      "name" : "Create Hue Chain",
       "script" : "Chain.cocoascript",
-      "handler" : "generateChain",
-      "shortcut" : "cmd ctrl alt c",
-      "identifier" : "generateChain"
+      "handler" : "generateHueChain",
+      "shortcut" : "",
+      "identifier" : "hueChain"
+    },
+    {
+      "name" : "Create Saturation Chain",
+      "script" : "Chain.cocoascript",
+      "handler" : "generateSaturationChain",
+      "shortcut" : "",
+      "identifier" : "saturationChain"
+    },
+    {
+      "name" : "Create Brightness Chain",
+      "script" : "Chain.cocoascript",
+      "handler" : "generateBrightnessChain",
+      "shortcut" : "",
+      "identifier" : "brightnessChain"
+    },
+    {
+      "name" : "Create Alpha Chain",
+      "script" : "Chain.cocoascript",
+      "handler" : "generateAlphaChain",
+      "shortcut" : "",
+      "identifier" : "alphaChain"
+    },
+    {
+      "name" : "Update Chains in Selected Layers",
+      "script" : "Chain.cocoascript",
+      "handler" : "updateChainsInLayers",
+      "shortcut" : "",
+      "identifier" : "updateChains"
     },
   ],
 
   "menu" : {
     "title": "Chain",
     "items" : [
-      "generateChain",
+      "hueChain",
+      "saturationChain",
+      "brightnessChain",
+      "alphaChain",
+      "updateChains",
     ],
   },
 

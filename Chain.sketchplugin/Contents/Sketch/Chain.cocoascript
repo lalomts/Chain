@@ -1,4 +1,5 @@
 @import "Utils.js";
+@import "ChainManager.js";
 @import "Chain.js";
 @import "Main.js";
 
