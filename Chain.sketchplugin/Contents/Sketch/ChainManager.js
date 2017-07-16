@@ -14,41 +14,34 @@ class ChainManager {
 	}
 
 	saveChain(chain) {
-		// const guide = chain.guideLayer;
-		// const chained = chain.chainedLayer; 
-		// const type = chain.type; 
-		// const target = chain.target; 
-		// let chains = this.getStoredChains();
+		const guide = chain.guideLayer;
+		const chained = chain.chainedLayer; 
+		const type = chain.type; 
+		const target = chain.target; 
+		let chains = this.getStoredChains();
 
-		// if (this.findConflictingChain(chains, chain)) {
-		// 	log('A conflicting chain exists.'); 
-		// 	return 
-		// }
+		log("passed"); 
 
-		// let matching = this.findMatchingChainWithValues(chains, guide, chained, type, target); 
-		// if (matching) {
-		// 	log("enteredmatchin")
-		// 	log (matching);
+		if (this.findConflictingChain(chains, chain)) {
+			log('A conflicting chain exists.'); 
+			return 
+		}
 
-		// 	// matching.updateValues(chain.value, chain.referenceTarget); 
-		// 	// If a previous chain with the same type and target exists, modify it. 
-		// 	matching.value = chain.value; 
-		// 	matching.referenceTarget = chain.referenceTarget; 
-		// 	log("leftmatching")
+		let matching = this.findMatchingChainWithValues(chains, guide, chained, type, target); 
+		if (matching) {
+			log("enteredmatchin")
+			// If a previous chain with the same type and target exists, modify it. 
+			matching.value = chain.value; 
+			matching.referenceTarget = chain.referenceTarget; 
 
-		// } else {
-		// 	log('Saving...' + chain); 
-		// 	chains.push(chain); 
-		// };
-
-
-		log('Saving...' + chain); 
-		// chains.push(chain); 
+		} else {
+			log('Saving...' + chain); 
+			chains.push(chain); 
+		};
 
 		// Perform the chained changes. 
 		chain.run(this.context) 
-
-		return this.setStoredChains(chain); 
+		return this.setStoredChains(chains); 
 	}
 
 	removeChainsBetweenSelectedLayers() {
@@ -103,7 +96,7 @@ class ChainManager {
 
 	launchChainCreator(type) {
 
-		let layers = map(this.selection, layer => layer);  
+		let layers = this.selection;  
 
 		//Creates the alert window
 	  let alert = COSAlertWindow.new();
@@ -235,9 +228,9 @@ class ChainManager {
 	}
 
 	//Storing and retrieving chains from layers. 
-	getStoredChains(layer){
+	getStoredChains(){
 		const value = this.command.valueForKey_onLayer_forPluginIdentifier(this.LAYER_CHAINS_KEY, this.docData, this.pluginID);
-		return value ? value : []
+		return value ? transformToJavascriptArray(value) : []
 	}
 
 	setStoredChains(chains){

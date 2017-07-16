@@ -30,12 +30,21 @@ var each = function(array, handler) {
 }
 
 var map = function(array, handler) {
-    var newArray = [NSMutableArray array];
-    each(array, function(item) {
-         var object = handler(item);
-         if (object) {
-         newArray.addObject(object);
-         }
-         });
-    return newArray;
+  var newArray = [NSMutableArray array];
+  each(array, function(item) {
+   var object = handler(item);
+   if (object) {
+    newArray.addObject(object);
+   }
+  });
+  return newArray;
+}
+
+//Transforms an NSArray to Javascript array (hopefully); 
+var transformToJavascriptArray = function (array) {
+  let newArray = [];
+  each(array, function(item) {
+    newArray.push(item); 
+  });
+  return newArray;
 }
