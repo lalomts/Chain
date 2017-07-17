@@ -16,9 +16,10 @@ var createCheckboxWithTitle = function(title) {
   return checkbox;
 }
 
-var getLayerNames = function(layers) {
-  return map(layers, layer => layer.name()); 
-};
+var removeItemFromArray = function(array, item){
+  let index = array.indexOf(item); 
+  return array.splice(index, 1); 
+}
 
 //Taken from http://sketchplugins.com/d/3-welcome-to-the-site/11
 var each = function(array, handler) {

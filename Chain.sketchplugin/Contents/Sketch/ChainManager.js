@@ -14,33 +14,17 @@ class ChainManager {
 	}
 
 	saveChain(chain) {
-		const guide = chain.guideLayer;
-		const chained = chain.chainedLayer; 
-		const type = chain.type; 
-		const target = chain.target; 
+
 		let chains = this.getStoredChains();
+		let matchingChain = this.findChainWithMatchingTarget(chains, chain); 
 
-		log("passed"); 
+		if (matchingChain) {
+			log("Will delete matching"); 
+			removeItemFromArray(chains, matchingChain); 
+		} 
 
-		if (this.findConflictingChain(chains, chain)) {
-			log('A conflicting chain exists.'); 
-			return 
-		}
-
-		let matching = this.findMatchingChainWithValues(chains, guide, chained, type, target); 
-		if (matching) {
-			log("enteredmatchin")
-			// If a previous chain with the same type and target exists, modify it. 
-			matching.value = chain.value; 
-			matching.referenceTarget = chain.referenceTarget; 
-
-		} else {
-			log('Saving...' + chain); 
-			chains.push(chain); 
-		};
-
-		// Perform the chained changes. 
-		chain.run(this.context) 
+		chains.push(chain); 
+		chain.run(this.context) // Perform the chained changes. 
 		return this.setStoredChains(chains); 
 	}
 
@@ -106,7 +90,7 @@ class ChainManager {
 	  // Select reference layer 
 	  alert.addTextLabelWithValue('Select the layer containing the reference color:');
 
-	  let layerNames = getLayerNames(layers);
+	  let layerNames = map(layers, layer => layer.name());
 
 	  let layerSelection = createDropdown(layerNames);
 	  alert.addAccessoryView(layerSelection);
@@ -181,50 +165,16 @@ class ChainManager {
 	  };
 	}
 
-
 	////// Retrieving and Filtering Chains  
-
-		//Filters the existing chains between the guideLayer and the chainedLayer.  
-	filterExistingChainsBetween(chains, guide, chained) {
-
-		let includesGuide = chains.filter( function(chain) {
-			return chain.guideLayer = guide; 
+	findChainWithMatchingTarget(chains, chain) {
+		let matching = chains.find(function(c) {
+			if (c.chainedLayer == chain.chainedLayer && c.type == chain.type && c.target == chain.target){
+				return true; 
+			} else {
+				return false;
+			};
 		});
-
-		return includesGuide.filter( function(chain) {
-			return chain.chainedLayer = chained; 
-		})
-	}
-
-	//Filters the chains with the specified type. 
-	filterChainsWithMatchingType(chains, type) {
-
-		return chains.filter( function(chain) {
-			return chain.type = type; 
-		});
-	}
-
-	//Finds a chain with the specified target. 
-	findChainWithMatchingTarget(chains, target){
-
-		return chains.find( function(chain) {
-			return chain.type = target; 
-		});
-	}
-
-	// Finds a previously stored chain with the same chainedLayer, type, and target. 
-	findMatchingChainWithValues(chains, guide, chained, type, target) {
-
-		let validChains = this.filterExistingChainsBetween(chains, guide, chained);
-		let matchingTypes = this.filterChainsWithMatchingType(validChains, type); 
-		let sameTarget = this.findChainWithMatchingTarget(matchingTypes, target); 
-		return sameTarget
-	}
-
-	//Finds a conflicting (inverse) chain between the layers. 
-	findConflictingChain(chains, chain) {
-		const matching = this.findMatchingChainWithValues(chains, chain.chainedLayer, chain.guideLayer, chain.type, chain.referenceTarget); 
-		return matching ? true : false; 
+		return matching;
 	}
 
 	//Storing and retrieving chains from layers. 
@@ -236,10 +186,6 @@ class ChainManager {
 	setStoredChains(chains){
 		return this.command.setValue_forKey_onLayer_forPluginIdentifier(chains, this.LAYER_CHAINS_KEY, this.docData, this.pluginID);
 	} 
-
-
-
-
 }
 
 //Ale y Cass 

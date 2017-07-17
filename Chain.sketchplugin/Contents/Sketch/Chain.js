@@ -21,8 +21,8 @@ class Chain {
 
 	run(context){
 
-		let guide = Chain.findLayerWithID(this.guideLayer, context); 
-		let chained = Chain.findLayerWithID(this.chainedLayer, context);
+		let guide = Chain.findLayerWithID(context, this.guideLayer); 
+		let chained = Chain.findLayerWithID(context, this.chainedLayer);
 
 		let initialColor = Chain.getColorFrom(guide, this.referenceTarget);
 		let transformedColor = Chain.transformColor(initialColor, this.type, this.value); 
@@ -99,7 +99,7 @@ class Chain {
 	  };
 	}
 
-	static findLayerWithID(id, context) {
+	static findLayerWithID(context, id) {
 		var predicate = NSPredicate.predicateWithFormat("objectID == %@", id);
 		return context.document.currentPage().children().filteredArrayUsingPredicate(predicate).firstObject()
 	}

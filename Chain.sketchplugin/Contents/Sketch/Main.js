@@ -7,7 +7,6 @@ var generateChain = function(context, type) {
 	};
 };
 
-
 var generateHueChain = function(context) {
 	generateChain(context, "Hue");
 };
