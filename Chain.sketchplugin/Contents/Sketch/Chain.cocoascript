@@ -1,6 +1,6 @@
-@import "Utils.js";
-@import "Dialog.js";
-@import "ChainManager.js";
-@import "Chain.js";
-@import "Main.js";
+@import "library/Utils.js";
+@import "library/Dialog.js";
+@import "library/ChainManager.js";
+@import "library/Chain.js";
+@import "library/Main.js";
 

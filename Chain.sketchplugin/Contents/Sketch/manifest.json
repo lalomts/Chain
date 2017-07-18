@@ -3,56 +3,40 @@
   "description": "Creates color relations between colors.",
   "author": "Lalo Mrtnz",
   "homepage": "https://github.com/LaloMrtnz/Chain",
-  "version": "0.0.1",
-  "identifier": "com.lalomrntz.sketch.chain",
+  "version": "1.0.0",
+  "identifier": "com.lalomrtnz.sketch.chain",
   "compatibleVersion": "41",
   "bundleVersion": "1.0",
   "commands" : [
     {
-      "name" : "Create Hue Chain",
+      "name" : "New Chain",
       "script" : "Chain.cocoascript",
-      "handler" : "generateHueChain",
+      "handler" : "generateChain",
       "shortcut" : "",
-      "identifier" : "hueChain"
+      "identifier" : "generateChain"
     },
     {
-      "name" : "Create Saturation Chain",
+      "name" : "Update All Chains",
       "script" : "Chain.cocoascript",
-      "handler" : "generateSaturationChain",
+      "handler" : "updateAllChains",
       "shortcut" : "",
-      "identifier" : "saturationChain"
+      "identifier" : "updateAllChains"
     },
     {
-      "name" : "Create Brightness Chain",
+      "name" : "Remove Chains Between Selected Layers",
       "script" : "Chain.cocoascript",
-      "handler" : "generateBrightnessChain",
+      "handler" : "removeChainsBetweenSelected",
       "shortcut" : "",
-      "identifier" : "brightnessChain"
-    },
-    {
-      "name" : "Create Alpha Chain",
-      "script" : "Chain.cocoascript",
-      "handler" : "generateAlphaChain",
-      "shortcut" : "",
-      "identifier" : "alphaChain"
-    },
-    {
-      "name" : "Update Chains in Selected Layers",
-      "script" : "Chain.cocoascript",
-      "handler" : "updateChainsInLayers",
-      "shortcut" : "",
-      "identifier" : "updateChains"
+      "identifier" : "removeBetweenSelected"
     },
   ],
 
   "menu" : {
     "title": "Chain",
     "items" : [
-      "hueChain",
-      "saturationChain",
-      "brightnessChain",
-      "alphaChain",
-      "updateChains",
+      "generateChain",
+      "updateAllChains",
+      "removeBetweenSelected"
     ],
   },
 

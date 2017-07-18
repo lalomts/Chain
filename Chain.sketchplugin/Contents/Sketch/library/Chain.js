@@ -6,26 +6,28 @@
 // - type: What type of color change to perform. Possible values: Hue, Saturation, Brightness, Alpha. 
 // - target: The property to change. Possible values: Fill, Border. 
 // - value: How much to change the color (expressed in percentage (for Bright/Satur/Alpha)) and in a number between -100 and 100 for Hue. 
+// - timestamp: Chain creation time. 
 
 class Chain {
 
-	constructor(type, guideLayer, referenceTarget, chainedLayer, target, value) {
+	constructor(type, guideLayer, referenceTarget, chainedLayer, target, value, timestamp) {
 		this.type = type;				
 		this.guideLayer = guideLayer;
 		this.referenceTarget = referenceTarget; 
 		this.chainedLayer = chainedLayer; 
 		this.target = target;
 		this.value = value;
+		this.timestamp = timestamp;
 	}
 
 	static run(chain, context){
-
+		//Find the necesary layers
 		let guide = Chain.findLayerWithID(context, chain.guideLayer); 
 		let chained = Chain.findLayerWithID(context, chain.chainedLayer);
-
+		//Get the reference color and the target color. 
 		let guideColor = Chain.getColorFrom(guide, chain.referenceTarget);
 		let chainedColor = Chain.getColorFrom(chained, chain.target); 
-
+		//Modify the specified values and set color back again. 
 		let linkedColor = Chain.transformColor(guideColor, chainedColor, chain.type, chain.value); 
 		Chain.setColorTo(linkedColor, chained, chain.target);
 
@@ -34,11 +36,11 @@ class Chain {
 
 	static setColorTo(color, layer, target) {
 
-		if (refTarget == "Fill") {
+		if (target == "Fill") {
 			layer.style().fills().firstObject().color = color; 
 			return;
 
-		} else if (refTarget == "Border"){
+		} else if (target == "Border"){
 			layer.style().borders().firstObject().color = color; 
 			return;
 			
@@ -68,7 +70,7 @@ class Chain {
 
 	  return MSColor.colorWithHue_saturation_brightness_alpha(h, s ,b, a);
 	}
-
+	//Makes the value wrap between 0 and 1. 
 	static addHue(hue, transform) {
 	  let addition = hue + transform; 
 	  if (addition > 1) {
