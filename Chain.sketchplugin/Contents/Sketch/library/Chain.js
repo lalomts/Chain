@@ -24,8 +24,8 @@ class Chain {
 
 		let success; 
 		//Find the necesary layers
-		let guide = Chain.findLayerWithID(context, chain.guideLayer); 
-		let chained = Chain.findLayerWithID(context, chain.chainedLayer);
+		let guide = context.document.documentData().layerWithID(chain.guideLayer); 
+		let chained = context.document.documentData().layerWithID(chain.chainedLayer); 
 
 		if (guide && chained) {
 			//Get the reference color and the target color. 
@@ -88,10 +88,4 @@ class Chain {
 	    return addition;
 	  };
 	}
-
-	static findLayerWithID(context, id) {
-		var predicate = NSPredicate.predicateWithFormat("objectID == %@", id);
-		return context.document.currentPage().children().filteredArrayUsingPredicate(predicate).firstObject()
-	}
-	
 }

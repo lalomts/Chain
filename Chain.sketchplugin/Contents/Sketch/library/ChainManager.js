@@ -16,8 +16,8 @@ class ChainManager {
 	newChain() {
 		let layers = this.selection; 
 
-		if (layers < 2) {
-			this.context.document.showMessage("Please select at least two layers to chain.")
+		if (layers.count() < 2) {
+			Dialog.newInformationDialog("Oops!", "Please select at least two layers to chain.")
 			return 
 		}
 

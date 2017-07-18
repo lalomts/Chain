@@ -12,14 +12,14 @@
       "name" : "New Chain",
       "script" : "Chain.cocoascript",
       "handler" : "generateChain",
-      "shortcut" : "",
+      "shortcut" : "shift cmd c",
       "identifier" : "generateChain"
     },
     {
       "name" : "Update All Chains",
       "script" : "Chain.cocoascript",
       "handler" : "updateAllChains",
-      "shortcut" : "",
+      "shortcut" : "shift cmd u",
       "identifier" : "updateAllChains"
     },
     {
