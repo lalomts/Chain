@@ -21,17 +21,24 @@ class Chain {
 	}
 
 	static run(chain, context){
+
+		let success; 
 		//Find the necesary layers
 		let guide = Chain.findLayerWithID(context, chain.guideLayer); 
 		let chained = Chain.findLayerWithID(context, chain.chainedLayer);
-		//Get the reference color and the target color. 
-		let guideColor = Chain.getColorFrom(guide, chain.referenceTarget);
-		let chainedColor = Chain.getColorFrom(chained, chain.target); 
-		//Modify the specified values and set color back again. 
-		let linkedColor = Chain.transformColor(guideColor, chainedColor, chain.type, chain.value); 
-		Chain.setColorTo(linkedColor, chained, chain.target);
 
-		log("Chain: Updated color in " + chain.chainedLayer); 
+		if (guide && chained) {
+			//Get the reference color and the target color. 
+			let guideColor = Chain.getColorFrom(guide, chain.referenceTarget);
+			let chainedColor = Chain.getColorFrom(chained, chain.target); 
+			//Modify the specified values and set color back again. 
+			let linkedColor = Chain.transformColor(guideColor, chainedColor, chain.type, chain.value); 
+			Chain.setColorTo(linkedColor, chained, chain.target);
+			success = true;
+		} else {
+			success == false 
+		};
+		return success
 	}
 
 	static setColorTo(color, layer, target) {
