@@ -1,20 +1,5 @@
 //Utils
-var createDropdown = function(options) {
 
-  let dropdown = NSComboBox.alloc().initWithFrame(NSMakeRect(0,0,230,25));
-  dropdown.setEditable(false);
-  dropdown.addItemsWithObjectValues(options);
-  dropdown.selectItemAtIndex(0);
-  return dropdown;
-}
-
-var createCheckboxWithTitle = function(title) {
-  let checkbox = NSButton.alloc().initWithFrame(NSMakeRect(10, 0, 100, 20));
-  checkbox.setButtonType(NSSwitchButton);
-  checkbox.setTitle(title); 
-
-  return checkbox;
-}
 
 var removeItemFromArray = function(array, item){
   let index = array.indexOf(item); 
