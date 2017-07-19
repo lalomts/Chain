@@ -1,4 +1,3 @@
-
 // Chain Components: 
 // - guideLayer: Layer containing the color reference. 
 // - referenceTarget: The property containing the color reference inside the layer. Possible values: Fill, Border. 
@@ -21,7 +20,6 @@ class Chain {
 	}
 
 	static run(chain, context){
-
 		let success; 
 		//Find the necesary layers
 		let guide = context.document.documentData().layerWithID(chain.guideLayer); 
@@ -36,7 +34,8 @@ class Chain {
 			Chain.setColorTo(linkedColor, chained, chain.target);
 			success = true;
 		} else {
-			success == false 
+			success == false
+			log('Could not update chain')
 		};
 		return success
 	}
@@ -44,7 +43,14 @@ class Chain {
 	static setColorTo(color, layer, target) {
 
 		if (target == "Fill") {
-			layer.style().fills().firstObject().color = color; 
+
+			if (layer.class() == "MSTextLayer") {
+			// If the layer if text, set the text color instead. 
+        layer.setTextColor(color);
+       
+    	} else {
+    		layer.style().fills().firstObject().color = color;
+    	}
 			return;
 
 		} else if (target == "Border"){
@@ -59,8 +65,14 @@ class Chain {
 	static getColorFrom(layer, refTarget) {
 
 		if (refTarget == "Fill") {
-			return layer.style().fills().firstObject().color();
+			// If the layer if text, get the text color instead. 
+			if (layer.class() == "MSTextLayer") {
+        return layer.textColor();
 
+    	} else {
+    		return layer.style().fills().firstObject().color();
+    	}
+	
 		} else if (refTarget == "Border"){
 			return layer.style().borders().firstObject().color();
 
@@ -70,6 +82,8 @@ class Chain {
 	}
 
 	static transformColor(guideColor, chainedColor, type, value) {
+
+		log(chainedColor)
 	  let h = type == "Hue" ? Chain.addHue(guideColor.hue(), value) : chainedColor.hue(), 
 	      s = type == "Saturation" ? guideColor.saturation() * value : chainedColor.saturation(),
 	      b = type == "Brightness" ? guideColor.brightness() * value : chainedColor.brightness(),

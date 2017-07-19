@@ -48,12 +48,16 @@ class ChainManager {
 		if (matchingChain) {
 			removeItemFromArray(chains, matchingChain); //Remove chain with same layers, type and target. 
 		} 
-
+		
 		chains.push(chain); 
 
 		let relatedChains = chains.filter(c => c.chainedLayer == chain.chainedLayer && c.target == chain.target)
 		//Run all the chains with the same layer and target.
-		this.runChains(relatedChains, (chain, success) => {if(!success) removeItemFromArray(chains, chain) }); 
+		this.runChains(relatedChains, (chain, success) => {
+			if(!success) {
+				removeItemFromArray(chains, chain);
+				log('Removing...');  
+			}); 
 		return this.setStoredChains(chains); 
 	}
 
@@ -74,9 +78,12 @@ class ChainManager {
 	updateAllChains() {
 		let chains = this.getStoredChains(); 
 
-		if (chains) {
-			this.runChains(chains, (chain, success) => { if(!success) removeItemFromArray(chains, chain) }); 
-			this.context.document.showMessage("Chains successfully updated!")
+		if (chains.length > 0) {
+			this.runChains(chains, (chain, success) => { 
+				if(!success) removeItemFromArray(chains, chain);
+				log('Removing...'); 
+			}); 
+			this.context.document.showMessage("Chains updated!")
 		} else {
 			Dialog.newInformationDialog("Oops!", "There are no chained layers in this document.");
 		}; 
