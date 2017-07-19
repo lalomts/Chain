@@ -57,7 +57,8 @@ class ChainManager {
 			if(!success) {
 				removeItemFromArray(chains, chain);
 				log('Removing...');  
-			}); 
+			}
+		}); 
 		return this.setStoredChains(chains); 
 	}
 
