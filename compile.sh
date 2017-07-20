@@ -1,1 +1,0 @@
-sass --watch ./sass/:./css/
