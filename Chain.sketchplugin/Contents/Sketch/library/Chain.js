@@ -23,16 +23,24 @@ class Chain {
 		let success; 
 		//Find the necesary layers
 		let guide = context.document.documentData().layerWithID(chain.guideLayer); 
-		let chained = context.document.documentData().layerWithID(chain.chainedLayer); 
+		let chained = context.document.documentData().layerWithID(chain.chainedLayer);
 
 		if (guide && chained) {
 			//Get the reference color and the target color. 
 			let guideColor = Chain.getColorFrom(guide, chain.referenceTarget);
-			let chainedColor = Chain.getColorFrom(chained, chain.target); 
-			//Modify the specified values and set color back again. 
-			let linkedColor = Chain.transformColor(guideColor, chainedColor, chain.type, chain.value); 
-			Chain.setColorTo(linkedColor, chained, chain.target);
-			success = true;
+			let chainedColor = Chain.getColorFrom(chained, chain.target);
+
+			if (guideColor && chainedColor) {
+				//Modify the specified values and set color back again. 
+				let linkedColor = Chain.transformColor(guideColor, chainedColor, chain.type, chain.value); 
+				Chain.setColorTo(linkedColor, chained, chain.target);
+				success = true;
+
+			} else {
+				success = false;
+				log('Could not find colors.') 
+			}
+			
 		} else {
 			success == false
 			log('Could not update chain')
@@ -58,13 +66,15 @@ class Chain {
 			return;
 			
 		} else {
-			log("Chain: Unrecognized layer target.")
+			log("Chain: Tried to update unrecognized layer property.")
 		}
 	}
 
-	static getColorFrom(layer, refTarget) {
+	static getColorFrom(layer, target) {
 
-		if (refTarget == "Fill") {
+		log("reftarget is " + target)
+
+		if (target == "Fill") {
 			// If the layer if text, get the text color instead. 
 			if (layer.class() == "MSTextLayer") {
         return layer.textColor();
@@ -73,17 +83,16 @@ class Chain {
     		return layer.style().fills().firstObject().color();
     	}
 	
-		} else if (refTarget == "Border"){
+		} else if (target == "Border"){
 			return layer.style().borders().firstObject().color();
 
 		} else {
-			log("Chain: Unrecognized layer reference target")
+			log("Chain: Tried to get urecognized layer property.")
 		}
 	}
 
 	static transformColor(guideColor, chainedColor, type, value) {
 
-		log(chainedColor)
 	  let h = type == "Hue" ? Chain.addHue(guideColor.hue(), value) : chainedColor.hue(), 
 	      s = type == "Saturation" ? guideColor.saturation() * value : chainedColor.saturation(),
 	      b = type == "Brightness" ? guideColor.brightness() * value : chainedColor.brightness(),

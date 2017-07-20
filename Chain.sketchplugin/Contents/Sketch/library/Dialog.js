@@ -59,7 +59,7 @@ class Dialog {
 	  	responseCode: responseCode, 
 	  	type: typeSelection.objectValueOfSelectedItem(),
 	  	guideLayer: guide.objectID(), 
-	  	referenceTarget: allowedRefTargets[refTargetSelection.intValue()],
+	  	referenceTarget: refTargetSelection.selectedCells()[0].title(),
 	  	targets: checkboxes.filter(target => target.state() != 0).map(target => target.title()),
 	  	value: valueField.floatValue()/100.0
 	  }
@@ -116,7 +116,6 @@ class Dialog {
 
 	static createRadioMatrix(items) {
 		let buttonCell = NSButtonCell.new();
-		buttonCell.setTitle("Items to add");
 		buttonCell.setButtonType(NSRadioButton);
 
 		let matrix = NSMatrix.alloc().initWithFrame_mode_prototype_numberOfRows_numberOfColumns(NSMakeRect(0, 0, 150, 22), NSRadioModeMatrix, buttonCell, 1, items.length);
