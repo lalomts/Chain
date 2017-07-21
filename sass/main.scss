@@ -2,6 +2,12 @@
 @import "neat/neat";
 @import "mixins";
 
+$bold-font: 'Raleway', sans-serif;
+$regular-font: 'Montserrat', sans-serif;
+
+$dark-color: #343434;
+$light-color: #B4B4B4;
+
 
 body {
 	background-color: white;
@@ -18,12 +24,20 @@ body {
 	height: 100%;
 	
 	display: block; 
+} 
+
+
+#icon-background {
+
+	@extend .screen; 
+	margin: -50% 0; 
+	padding: 50% 0; 
 	background-image: url("../img/circle-icon.svg");
 	background-size: 120%;
   background-repeat: no-repeat;
   background-position: center;
 	background-color: white; 
-} 
+}
 
 #logo {
 	position: absolute;
@@ -41,5 +55,41 @@ body {
   background-position: center;
 
 	border-radius:260px;
-	@include box-shadow(0, 20px, 90px, rgba(0,0,0,0.2));
+	@include box-shadow(0, 20px, 70px, rgba(0,0,0,0.3));
+}
+
+#main-description {
+	// background-color: green; 
+	margin-top: 90%; 
+}
+
+h1 {
+	@include grid-column(7);
+	@include grid-push(2.5);
+	margin-bottom: 0; 
+
+ 	font-family: $bold-font;
+	font-size: 3.6em;
+	color: $dark-color;
+}
+
+p {
+	@include grid-column(8);
+	@include grid-push(2);
+	font-family: $regular-font; 	
+	font-size: 1.6em;
+	line-height: 1.4em; 
+	color: $light-color; 
+} 
+
+.subtitle {
+	margin-top: 10px;
+}
+
+.centered {
+	text-align: center;  
+}
+
+.left {
+	text-align: left;
 }
