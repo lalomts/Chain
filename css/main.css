@@ -53,7 +53,7 @@ body, html {
 
 h1, h2 {
   font-family: "Raleway", sans-serif;
-  font-size: 3.55em;
+  font-size: 3.45em;
   color: #343434;
   text-align: center;
   margin-bottom: 0; }
@@ -71,13 +71,22 @@ h1, h2 {
   margin-left: calc(16.6666666667% - 23.3333333333px + 40px); }
 
 p {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.6em;
-  line-height: 1.4em;
+  font-family: "Muli", sans-serif;
+  font-size: 1.5em;
+  line-height: 1.6em;
   color: #B4B4B4; }
+  p a {
+    font-family: "Muli", sans-serif;
+    color: #E93270;
+    text-decoration: none;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out; }
+    p a:hover {
+      color: #f077a0; }
 
 .subtitle {
-  margin-top: 10px;
+  margin-top: 15px;
   text-align: center; }
 
 .left {
@@ -108,7 +117,7 @@ p {
   margin-left: calc(4.1666666667% - 20.8333333333px + 40px); }
 
 h2 {
-  font-size: 2.8em; }
+  font-size: 2.6em; }
 
 #divisor-left {
   position: relative;
@@ -134,6 +143,51 @@ h2 {
   float: left;
   margin-left: 20px;
   margin-left: calc(20.8333333333% - 24.1666666667px + 40px);
-  display: none; }
+  margin-top: 10%;
+  height: 70%; }
+
+#github-buttons {
+  text-align: center; }
+
+#bugs {
+  margin-top: 40px; }
+
+#download {
+  display: block;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 1000;
+  height: 65px;
+  width: 15%;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 17px;
+  line-height: 15px;
+  color: #343434;
+  text-decoration: none;
+  background-color: white;
+  border-radius: 120px;
+  -webkit-box-shadow: 0 10px 40px rgba(75, 75, 75, 0.3);
+  -moz-box-shadow: 0 10px 40px rgba(75, 75, 75, 0.3);
+  box-shadow: 0 10px 40px rgba(75, 75, 75, 0.3);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+  #download:hover {
+    -webkit-box-shadow: 0 5px 40px rgba(75, 75, 75, 0.1);
+    -moz-box-shadow: 0 5px 40px rgba(75, 75, 75, 0.1);
+    box-shadow: 0 5px 40px rgba(75, 75, 75, 0.1);
+    color: #4e4e4e; }
+
+#download-grouper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+
+#version {
+  font-family: "Muli", sans-serif;
+  font-size: 14px;
+  color: #B4B4B4; }
 
 /*# sourceMappingURL=main.css.map */

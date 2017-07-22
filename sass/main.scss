@@ -3,7 +3,7 @@
 @import "mixins";
 
 $bold-font: 'Raleway', sans-serif;
-$regular-font: 'Montserrat', sans-serif;
+$regular-font: 'Muli', sans-serif;
 
 $dark-color: #343434;
 $light-color: #B4B4B4;
@@ -71,7 +71,7 @@ body , html {
 
 h1 {
  	font-family: $bold-font;
-	font-size: 3.55em;
+	font-size: 3.45em;
 	color: $dark-color;
 	text-align: center; 
 	margin-bottom: 0; 
@@ -90,13 +90,24 @@ h1 {
 
 p {
 	font-family: $regular-font; 	
-	font-size: 1.6em;
-	line-height: 1.4em; 
-	color: $light-color; 
-} 
+	font-size: 1.5em;
+	line-height: 1.6em; 
+	color: $light-color;
+
+	a {
+	font-family: $regular-font; 	
+	color: #E93270;
+	text-decoration: none;
+	@include transition(all 0.2s ease-in-out);
+		&:hover {
+			color: lighten(#E93270, 15%);
+		} 
+	}
+}
+
 
 .subtitle {
-	margin-top: 10px;
+	margin-top: 15px;
 	text-align: center; 
 }
 
@@ -124,12 +135,11 @@ p {
 	height: 80%;
 	@include grid-column(11);
 	@include grid-push(0.5);
-	// background-color: green;  
 }
 
 h2 {
 	@extend h1;
-	font-size: 2.8em;
+	font-size: 2.6em;
 }
 
 #divisor-left {
@@ -153,14 +163,58 @@ h2 {
 #opensource {
 	@include grid-column(7);
 	@include grid-push(2.5);
-	display: none; 
-	// background-color: blue; 
+	margin-top: 10%;
+	height: 70%; 
+}
+
+#github-buttons {
+	text-align:center;
+}
+
+#bugs {
+	margin-top: 40px; 
+}
+
+#download{
+	display: block; 
+	position: fixed; 
+	right: 20px; 
+	top: 20px; 
+	z-index: 1000;
+
+	height: 65px;
+	width: 15%;
+	text-align: center; 
+
+	font-family: $bold-font; 
+	font-size: 17px; 
+	line-height: 15px; 
+	color: $dark-color; 
+	text-decoration: none; 
+
+	background-color: white; 
+	border-radius: 120px; 
+	@include box-shadow(0, 10px, 40px, rgba(75,75,75,.3));
+
+	@include transition(all 0.3s ease-in-out);
+
+	&:hover {
+		@include box-shadow(0, 5px, 40px, rgba(75,75,75,.1));
+		color: lighten($dark-color, 10%);
+	}
+} 
+
+#download-grouper {
+	position: relative; 
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#version {
+	font-family: $regular-font; 
+	font-size: 14px; 
+	color: $light-color
 }
 
 
-// #opensource-title {
-// 	@include grid-column(7);
-// 	@include grid-push(2.5);
-// 	text-align: center; 
-// }
 
