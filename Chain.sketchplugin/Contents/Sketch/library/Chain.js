@@ -62,17 +62,20 @@ class Chain {
 			return;
 
 		} else if (target == "Border"){
-			layer.style().borders().firstObject().color = color; 
-			return;
-			
+
+			let border = layer.style().borders().firstObject()
+
+			if (border && border.isEnabled()){
+				border.color = color; 
+			}	else {
+				log('Could not set border.');
+			}	
 		} else {
 			log("Chain: Tried to update unrecognized layer property.")
 		}
 	}
 
 	static getColorFrom(layer, target) {
-
-		log("reftarget is " + target)
 
 		if (target == "Fill") {
 			// If the layer if text, get the text color instead. 
@@ -84,7 +87,14 @@ class Chain {
     	}
 	
 		} else if (target == "Border"){
-			return layer.style().borders().firstObject().color();
+			let border = layer.style().borders().firstObject()
+
+			if (border && border.isEnabled()) {
+				return layer.style().borders().firstObject().color();
+
+			} else {
+				log("Could not get border");
+			}
 
 		} else {
 			log("Chain: Tried to get urecognized layer property.")
