@@ -34,7 +34,7 @@ body , html {
 	margin: -50% 0; 
 	padding: 50% 0; 
 	background-image: url("../img/circle-icon.svg");
-	background-size: 120%;
+	background-size: 125%;
   background-repeat: no-repeat;
   background-position: center;
 	background-color: white; 
@@ -75,7 +75,6 @@ h1 {
 	color: $dark-color;
 	text-align: center; 
 	margin-bottom: 0; 
-
 }
 
 #main-title {
@@ -91,7 +90,7 @@ h1 {
 p {
 	font-family: $regular-font; 	
 	font-size: 1.5em;
-	line-height: 1.6em; 
+	line-height: 1.5em; 
 	color: $light-color;
 
 	a {
@@ -105,7 +104,6 @@ p {
 	}
 }
 
-
 .subtitle {
 	margin-top: 15px;
 	text-align: center; 
@@ -117,19 +115,35 @@ p {
 	margin-left: 12%; 
 
 }
-.video {
-	display: block;
+.video-container {
+	display:block;
+
+	//Responsive container
+	position: relative; 
+	padding-bottom: 36%; 
+	height: 0; 
+	overflow: hidden; 
+	max-width: 100%; 
 
 	@include grid-column(8);
 	@include grid-push(2);
-	height: 400px; 
 	margin-top: 30px; 
 	margin-bottom: 10%;
 
-	border-radius: 10px; 
+
+	border-radius: 10px;
 	background-color: white; 
-	@include box-shadow(0, 40px, 60px, rgba(75,75,75,.1));
+	@include box-shadow(0, 40px, 90px, rgba(75,75,75,.3));
 }
+
+.video-container iframe, .video-container object, .video-container embed { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100%; 
+	height: 100%; 
+}
+
 
 #combinations {
 	height: 80%;
@@ -171,50 +185,74 @@ h2 {
 	text-align:center;
 }
 
+.github-button {
+	position:relative;
+	margin: 10px; 
+}
+
 #bugs {
 	margin-top: 40px; 
 }
 
 #download{
-	display: block; 
 	position: fixed; 
 	right: 20px; 
 	top: 20px; 
 	z-index: 1000;
 
-	height: 65px;
 	width: 15%;
+	height: 70px;
 	text-align: center; 
 
+	display: flex;
+	align-items: center; 
+
+	padding: 0 20px; 
+
 	font-family: $bold-font; 
-	font-size: 17px; 
+	font-size: 16px; 
 	line-height: 15px; 
 	color: $dark-color; 
 	text-decoration: none; 
 
 	background-color: white; 
 	border-radius: 120px; 
-	@include box-shadow(0, 10px, 40px, rgba(75,75,75,.3));
+	@include box-shadow(0, 10px, 50px, rgba(75,75,75,.3));
 
 	@include transition(all 0.3s ease-in-out);
 
 	&:hover {
 		@include box-shadow(0, 5px, 40px, rgba(75,75,75,.1));
 		color: lighten($dark-color, 10%);
+
+		#download-icon {
+			opacity: 0.8;
+		}
 	}
 } 
 
+#download-icon {
+	display: block;
+	height: 60%; 
+	width: 20%;
+	opacity: 0.4;
+
+	background-image: url("../img/download-icon.svg");
+	background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include transition(all 0.3s ease-in-out);
+}
+
 #download-grouper {
-	position: relative; 
-	top: 50%;
-	transform: translateY(-50%);
+	width: 75%; 
+	margin-left: 5%;
 }
 
 #version {
+	margin-top: 10px; 
 	font-family: $regular-font; 
-	font-size: 14px; 
+	font-size: 13px; 
 	color: $light-color
 }
-
-
-

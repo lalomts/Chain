@@ -20,7 +20,7 @@ body, html {
   margin: -50% 0;
   padding: 50% 0;
   background-image: url("../img/circle-icon.svg");
-  background-size: 120%;
+  background-size: 125%;
   background-repeat: no-repeat;
   background-position: center;
   background-color: white; }
@@ -73,7 +73,7 @@ h1, h2 {
 p {
   font-family: "Muli", sans-serif;
   font-size: 1.5em;
-  line-height: 1.6em;
+  line-height: 1.5em;
   color: #B4B4B4; }
   p a {
     font-family: "Muli", sans-serif;
@@ -94,20 +94,31 @@ p {
   width: 90%;
   margin-left: 12%; }
 
-.video {
+.video-container {
   display: block;
+  position: relative;
+  padding-bottom: 36%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
   width: calc(66.6666666667% - 33.3333333333px);
   float: left;
   margin-left: 20px;
   margin-left: calc(16.6666666667% - 23.3333333333px + 40px);
-  height: 400px;
   margin-top: 30px;
   margin-bottom: 10%;
   border-radius: 10px;
   background-color: white;
-  -webkit-box-shadow: 0 40px 60px rgba(75, 75, 75, 0.1);
-  -moz-box-shadow: 0 40px 60px rgba(75, 75, 75, 0.1);
-  box-shadow: 0 40px 60px rgba(75, 75, 75, 0.1); }
+  -webkit-box-shadow: 0 40px 90px rgba(75, 75, 75, 0.3);
+  -moz-box-shadow: 0 40px 90px rgba(75, 75, 75, 0.3);
+  box-shadow: 0 40px 90px rgba(75, 75, 75, 0.3); }
+
+.video-container iframe, .video-container object, .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
 
 #combinations {
   height: 80%;
@@ -149,28 +160,34 @@ h2 {
 #github-buttons {
   text-align: center; }
 
+.github-button {
+  position: relative;
+  margin: 10px; }
+
 #bugs {
   margin-top: 40px; }
 
 #download {
-  display: block;
   position: fixed;
   right: 20px;
   top: 20px;
   z-index: 1000;
-  height: 65px;
   width: 15%;
+  height: 70px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
   font-family: "Raleway", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   line-height: 15px;
   color: #343434;
   text-decoration: none;
   background-color: white;
   border-radius: 120px;
-  -webkit-box-shadow: 0 10px 40px rgba(75, 75, 75, 0.3);
-  -moz-box-shadow: 0 10px 40px rgba(75, 75, 75, 0.3);
-  box-shadow: 0 10px 40px rgba(75, 75, 75, 0.3);
+  -webkit-box-shadow: 0 10px 50px rgba(75, 75, 75, 0.3);
+  -moz-box-shadow: 0 10px 50px rgba(75, 75, 75, 0.3);
+  box-shadow: 0 10px 50px rgba(75, 75, 75, 0.3);
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out; }
@@ -179,15 +196,30 @@ h2 {
     -moz-box-shadow: 0 5px 40px rgba(75, 75, 75, 0.1);
     box-shadow: 0 5px 40px rgba(75, 75, 75, 0.1);
     color: #4e4e4e; }
+    #download:hover #download-icon {
+      opacity: 0.8; }
+
+#download-icon {
+  display: block;
+  height: 60%;
+  width: 20%;
+  opacity: 0.4;
+  background-image: url("../img/download-icon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
 
 #download-grouper {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%); }
+  width: 75%;
+  margin-left: 5%; }
 
 #version {
+  margin-top: 10px;
   font-family: "Muli", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: #B4B4B4; }
 
 /*# sourceMappingURL=main.css.map */
