@@ -1,9 +1,10 @@
 {
   "name": "Chain",
-  "description": "Creates color relations between colors.",
+  "description": "Dynamic color relations inside Sketch.",
   "author": "Lalo Mrtnz",
   "homepage": "https://github.com/LaloMrtnz/Chain",
-  "version": "1.0.0",
+  "version": "1.0",
+  "appcast": "https://raw.githubusercontent.com/LaloMrtnz/Chain/master/appcast.xml",
   "identifier": "com.lalomrtnz.sketch.chain",
   "compatibleVersion": "41",
   "bundleVersion": "1.0",

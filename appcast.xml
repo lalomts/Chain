@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Chain</title>
+    <link>https://raw.githubusercontent.com/margusholland/Comma/master/comma-plugin-appcast.xml</link>
+    <description>Dynamic color relations inside Sketch.</description>
+    <language>en</language>
+      <item>
+        <title>Version 1.0</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>First release! </li>
+              <li>Great things to come.</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://github.com/LaloMrtnz/Chain/archive/1.0.zip" sparkle:version="1.0" />
+      </item>
+  </channel>
+</rss>
