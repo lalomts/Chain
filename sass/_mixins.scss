@@ -10,3 +10,8 @@
   }
 }
 
+@mixin vertical-alignment($height){
+	top: $height;
+	transform: translateY(-($height));
+}
+
