@@ -35,7 +35,7 @@ class Dialog {
 
 	  // Transformation Input 	  
 	  alert.addTextLabelWithValue('Transformation: ');
-	  let valueField = Dialog.createTextField('0 - 100'); 
+	  let valueField = Dialog.createTextField('(+/-) 100'); 
 	  alert.addAccessoryView(valueField);
 
 	  //Sets the target checkboxes  
@@ -61,7 +61,7 @@ class Dialog {
 	  	guideLayer: guide.objectID(), 
 	  	referenceTarget: refTargetSelection.selectedCells()[0].title(),
 	  	targets: checkboxes.filter(target => target.state() != 0).map(target => target.title()),
-	  	value: valueField.floatValue()/100.0
+	  	value: 1 + (valueField.floatValue()/100.0)
 	  }
 	  return inputs; 
 	}
