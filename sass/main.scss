@@ -264,6 +264,13 @@ p {
     margin-top: 5%;
     margin-bottom: 2%; 
   }
+
+  @include grid-media($micro-down) {
+		@include grid-column(12);
+		height: 100%;
+    margin-top: 5%;
+    margin-bottom: 0; 
+  }
 }
 
 h2 {
@@ -323,6 +330,12 @@ h2 {
 
   @include grid-media($small-down) {
   	margin-top: 15%;
+   	@include grid-column(12);
+   	@include grid-push(0);
+  }
+
+   @include grid-media($micro-down) {
+  	margin-top: 5%;
    	@include grid-column(12);
    	@include grid-push(0);
   }
@@ -411,7 +424,8 @@ h2 {
 }
 
 #version {
-	margin-top: 15px; 
+	position:relative;
+	top: 3px; 
 	font-family: $regular-font; 
 	font-size: 13px; 
 	color: $light-color

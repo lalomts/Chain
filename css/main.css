@@ -173,6 +173,11 @@ p {
   height: 0;
   overflow: hidden;
   max-width: 100%;
+  position: relative;
+  padding-bottom: 36%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
   width: calc(66.6666666667% - 33.3333333333px);
   float: left;
   margin-left: 20px;
@@ -220,6 +225,14 @@ p {
       height: 100%;
       margin-top: 5%;
       margin-bottom: 2%; } }
+  @media (max-width: 550px) {
+    #combinations {
+      width: calc(100% - 40px);
+      float: left;
+      margin-left: 20px;
+      height: 100%;
+      margin-top: 5%;
+      margin-bottom: 0; } }
 
 h2 {
   font-size: 2.6em; }
@@ -283,6 +296,13 @@ h2 {
   @media (max-width: 755px) {
     #opensource {
       margin-top: 15%;
+      width: calc(100% - 40px);
+      float: left;
+      margin-left: 20px;
+      margin-left: calc(0% - 20px + 40px); } }
+  @media (max-width: 550px) {
+    #opensource {
+      margin-top: 5%;
       width: calc(100% - 40px);
       float: left;
       margin-left: 20px;
@@ -358,7 +378,8 @@ h2 {
   margin-left: 5%; }
 
 #version {
-  margin-top: 15px;
+  position: relative;
+  top: 3px;
   font-family: "Muli", sans-serif;
   font-size: 13px;
   color: #B4B4B4; }
