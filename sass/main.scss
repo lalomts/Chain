@@ -214,6 +214,13 @@ p {
 	overflow: hidden; 
 	max-width: 100%; 
 
+	//Responsive container
+	position: relative; 
+	padding-bottom: 36%; 
+	height: 0; 
+	overflow: hidden; 
+	max-width: 100%; 
+
 	@include grid-column(8);
 	@include grid-push(2);
 	margin-top: 30px; 
