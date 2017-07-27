@@ -23,7 +23,17 @@
 	<link href="https://fonts.googleapis.com/css?family=Muli|Raleway:800" rel="stylesheet">
   <link href="css/main.css" rel="stylesheet" type="text/css">
 
-	
+  <!--Google Analytics -->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-103385015-1', 'auto');
+	  ga('send', 'pageview');
+
+	</script>
 
 </head>
 
@@ -35,7 +45,7 @@
 		<div id="logo"> </div>
 	</section>
 
-	<a href="https://github.com/LaloMrtnz/Chain/releases/latest" id="download"> 
+	<a href="https://github.com/LaloMrtnz/Chain/releases/latest" id="download" onClick="ga('send', 'event', 'Links', 'Click', 'Download');"> 
 		<div id="download-icon"></div>
 		<div id="download-grouper">
 			<span>Download Now</span> </br>
@@ -57,7 +67,7 @@
 			<h2 class="left">Lots of combinations. </h2>
 			<p class="subtitle left" id="lots">Choose between chaining hue, saturation, brightness and alpha values to create the combination that best fits your project. </br> </br> 
 
-			<a href="https://github.com/LaloMrtnz/Chain#usage">Learn more. </a>
+			<a href="https://github.com/LaloMrtnz/Chain#usage" onClick="ga('send', 'event', 'Links', 'Click', 'LearnMore');">Learn more. </a>
 			</p>
 		</div>
 
@@ -66,7 +76,7 @@
 
 	<section class="feature" id="opensource">
 		<h2 id="opensource-title"> Open source. </h2>
-		<p class="subtitle" id="fork"> Fork the <a href="https://github.com/LaloMrtnz/Chain">Github repo</a> to contribute. </p>
+		<p class="subtitle" id="fork"> Fork the <a href="https://github.com/LaloMrtnz/Chain" onClick="ga('send', 'event', 'Links', 'Click', 'GitRepo');">Github repo</a> to contribute. </p>
 
 		<div id="github-buttons">
 		<a class="github-button" href="https://github.com/LaloMrtnz/Chain" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star LaloMrtnz/Chain on GitHub">Star</a>
@@ -74,7 +84,7 @@
 		<a class="github-button" href="https://github.com/LaloMrtnz/Chain/issues" data-icon="octicon-issue-opened" data-size="large" data-show-count="true" aria-label="Issue LaloMrtnz/Chain on GitHub">Issue</a>
 		</div>
 
-		<p class="subtitle" id="bugs"> To report bugs or request features, either create an Issue on Github or send me a message on <a href="https://twitter.com/l__a__l__o">Twitter</a>.</p>
+		<p class="subtitle" id="bugs"> To report bugs or request features, either create an Issue on Github or send me a message on <a href="https://twitter.com/l__a__l__o" onClick="ga('send', 'event', 'Links', 'Click', 'MessageTwitter');">Twitter</a>.</p>
 	</section>
 
 	<section class="feature" id="donate">
@@ -83,7 +93,7 @@
 	<h2 class="white" id="donate-title"> Like it? </h2>
 	<p class="subtitle white" id="donate-subtitle"> If you find Chain useful, consider supporting its development.</p>	
 
-	<a href="https://www.paypal.me/LaloMrtnz/5USD" id="donate-button">
+	<a href="https://www.paypal.me/LaloMrtnz/5USD" id="donate-button" onClick="ga('send', 'event', 'Links', 'Click', 'Donate');">
 		<div id="donate-icon"></div>	
 		<span>Donate</span>
 	</a>
