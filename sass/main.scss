@@ -531,6 +531,48 @@ h2 {
   @include transition(all 0.3s ease-in-out);
 }
 
+#product-hunt {
+	display: block; 
+	position: absolute; 
+	bottom: 25px; 
+	left: 50%;
+	transform: translateX(-50%);
+
+	width: 45%; 
+	padding: 20px 20px;
+	z-index: 900;
+
+	border-radius: 100px; 
+
+	background-color: white; 
+	color: $dark-color; 
+
+	font-family: $bold-font; 	
+	font-size: 1.1em;
+	line-height: 1.1em; 
+	text-align: center; 
+
+	@include box-shadow(0, 8px, 50px, rgba(75,75,75,.3));
+	 
+	a {
+		color: #E57F1E;
+		text-decoration: none;
+		@include transition(all 0.3s ease-in-out);
+
+		&:hover {
+			color: lighten(#E57F1E, 10%);
+		}
+	}
+
+	@include grid-media($medium-down){
+  	width: 65%; 
+  }
+
+  @include grid-media($small-down){
+  	width: 85%; 
+  }
+}
+
 
 
 
