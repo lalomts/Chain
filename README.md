@@ -1,4 +1,4 @@
-## 🦁 Chain is now on Product Hunt! Come [show some love!](https://www.producthunt.com/posts/chain-4) ♥️
+# 🦁 Chain is now on Product Hunt! Come [show some love!](https://www.producthunt.com/posts/chain-4) ♥️
 <p align="center">
   <img src="https://github.com/LaloMrtnz/Chain/blob/gh-pages/img/readme/chain-icon.png?raw=true" style="width: 20%; max-width:500px;" />
 </p>
