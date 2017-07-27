@@ -15,7 +15,7 @@
             </ul>
           ]]>
         </description>
-        <enclosure url="https://github.com/LaloMrtnz/Chain/archive/1.0.zip" sparkle:version="1.0" />
+        <enclosure url="https://github.com/LaloMrtnz/Chain/archive/v0.9.zip" sparkle:version="0.9" />
       </item>
   </channel>
 </rss>
