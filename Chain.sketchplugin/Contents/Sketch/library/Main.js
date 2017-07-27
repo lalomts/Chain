@@ -12,4 +12,3 @@ var removeChainsBetweenSelected = function(context){
 	let manager = new ChainManager(context); 
 	manager.removeChainsBetweenSelectedLayers();
 };
-

@@ -71,7 +71,10 @@ class ChainManager {
 
 		let chains = this.getStoredChains();
 		//Filter all chains that relate the two selected layers. 
-		let filteredChains = chains.filter(chain => chain.guideLayer != layers[0].objectID() && chain.chainedLayer != layers[1].objectID() || chain.guideLayer != layers[1].objectID() && chain.chainedLayer != layers[0].objectID());
+		let filteredChains = chains.filter(chain => 
+			!(chain.guideLayer == layers[0].objectID() && chain.chainedLayer == layers[1].objectID() ||
+			chain.guideLayer == layers[1].objectID() && chain.chainedLayer == layers[0].objectID())
+		)
 		this.setStoredChains(filteredChains);
 		this.context.document.showMessage("Selected chains were removed.")
 	}
@@ -81,9 +84,12 @@ class ChainManager {
 
 		if (chains.length > 0) {
 			this.runChains(chains, (chain, success) => { 
-				if(!success) removeItemFromArray(chains, chain);
-				log('Removing...'); 
+				if(!success) {
+					removeItemFromArray(chains, chain);
+					log('Removing...'); 
+				}	
 			}); 
+			this.setStoredChains(chains); 
 			this.context.document.showMessage("Chains updated!")
 		} else {
 			Dialog.newInformationDialog("Oops!", "There are no chained layers in this document.");
@@ -109,9 +115,8 @@ class ChainManager {
 		return matching;
 	}
 
-	deleteChain(chain){
-		let chains = this.getStoredChains()
-		removeItemFromArray(chains, chain); 
+	logChains() {
+		log(this.getStoredChains())
 	}
 
 	//Storing and retrieving chains from layers. 
