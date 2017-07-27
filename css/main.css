@@ -5,6 +5,12 @@ body, html {
   width: 100%;
   height: 100%; }
 
+section {
+  min-height: 300px; }
+  @media (max-width: 550px) {
+    section {
+      height: 100%; } }
+
 .screen {
   position: relative;
   margin: 0;
@@ -85,7 +91,7 @@ body, html {
       margin-top: 25%; } }
   @media (max-width: 550px) {
     #main-description {
-      margin-top: 50%; } }
+      margin-top: 60%; } }
 
 h1, h2 {
   font-family: "Raleway", sans-serif;
@@ -169,12 +175,7 @@ p {
 .video-container {
   display: block;
   position: relative;
-  padding-bottom: 36%;
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  position: relative;
-  padding-bottom: 36%;
+  padding-bottom: 36.25%;
   height: 0;
   overflow: hidden;
   max-width: 100%;
@@ -195,14 +196,14 @@ p {
       float: left;
       margin-left: 20px;
       margin-left: calc(8.3333333333% - 21.6666666667px + 40px);
-      padding-bottom: 42.75%; } }
+      padding-bottom: 45.21%; } }
   @media (max-width: 550px) {
     .video-container {
       width: calc(100% - 40px);
       float: left;
       margin-left: 20px;
       margin-left: calc(0% - 20px + 40px);
-      padding-bottom: 51.3%; } }
+      padding-bottom: 52.37%; } }
 
 .video-container iframe, .video-container object, .video-container embed {
   position: absolute;
@@ -231,7 +232,7 @@ p {
       float: left;
       margin-left: 20px;
       height: 100%;
-      margin-top: 5%;
+      margin-top: 20%;
       margin-bottom: 0; } }
 
 h2 {
@@ -281,12 +282,14 @@ h2 {
       height: 50%; } }
 
 #opensource {
+  display: inline-block;
   width: calc(58.3333333333% - 31.6666666667px);
   float: left;
   margin-left: 20px;
   margin-left: calc(20.8333333333% - 24.1666666667px + 40px);
   margin-top: 10%;
-  height: 70%; }
+  height: 70%;
+  min-height: 500px; }
   @media (max-width: 980px) {
     #opensource {
       width: calc(83.3333333333% - 36.6666666667px);
@@ -302,7 +305,7 @@ h2 {
       margin-left: calc(0% - 20px + 40px); } }
   @media (max-width: 550px) {
     #opensource {
-      margin-top: 5%;
+      margin-top: 25%;
       width: calc(100% - 40px);
       float: left;
       margin-left: 20px;
@@ -456,7 +459,7 @@ h2 {
       width: 26%; } }
   @media (max-width: 550px) {
     #donate-button {
-      width: 50%; } }
+      width: 55%; } }
 
 #donate-icon {
   display: block;

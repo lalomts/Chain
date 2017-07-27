@@ -30,6 +30,14 @@ body , html {
 	height: 100%;
 }
 
+section {
+	min-height: 300px;
+
+	 @include grid-media($micro-down) {
+    height: 100%;
+  }
+}
+
 .screen{
 	position: relative;
 	margin: 0;
@@ -121,7 +129,7 @@ body , html {
   }
 
   @include grid-media($micro-down) {
-    margin-top: 50%;
+    margin-top: 60%;
   }
 }
 
@@ -207,16 +215,10 @@ p {
 }
 .video-container {
 	display:block;
-	//Responsive container
-	position: relative; 
-	padding-bottom: 36%; 
-	height: 0; 
-	overflow: hidden; 
-	max-width: 100%; 
 
 	//Responsive container
 	position: relative; 
-	padding-bottom: 36%; 
+	padding-bottom: 36.25%; 
 	height: 0; 
 	overflow: hidden; 
 	max-width: 100%; 
@@ -234,13 +236,13 @@ p {
 	@include grid-media($medium-down) {
     @include grid-column(10);
     @include grid-push(1);
-    padding-bottom: 42.75%;
+    padding-bottom: 45.21%;
   }
 
    @include grid-media($micro-down) {
     @include grid-column(12);
     @include grid-push(0);
-    padding-bottom: 51.3%;
+    padding-bottom: 52.37%;
   }
 }
 
@@ -268,7 +270,7 @@ p {
   @include grid-media($micro-down) {
 		@include grid-column(12);
 		height: 100%;
-    margin-top: 5%;
+    margin-top: 20%;
     margin-bottom: 0; 
   }
 }
@@ -318,10 +320,12 @@ h2 {
 }
 
 #opensource {
+	display: inline-block;
 	@include grid-column(7);
 	@include grid-push(2.5);
 	margin-top: 10%;
 	height: 70%; 
+	min-height: 500px;
 
 	@include grid-media($medium-down) {
    	@include grid-column(10);
@@ -335,7 +339,7 @@ h2 {
   }
 
    @include grid-media($micro-down) {
-  	margin-top: 5%;
+  	margin-top: 25%;
    	@include grid-column(12);
    	@include grid-push(0);
   }
@@ -509,7 +513,7 @@ h2 {
   }
 
   @include grid-media($micro-down) {
-    width: 50%;
+    width: 55%;
   }
 }
 
