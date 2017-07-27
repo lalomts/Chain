@@ -12,7 +12,7 @@
 
 ## Usage
 
-### Crearing Chains
+### Creating Chains
 1. Select the layers you want to chain
 2. Run the command **New Chain** from the menu or use **[shift cmd c]**
 3. Select your desired options and click **OK**
