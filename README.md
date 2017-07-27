@@ -57,7 +57,7 @@ If you find Chain useful, consider supporting it's development.
 [Donate 😎](https://www.paypal.me/LaloMrtnz/5usd) 
 
 
-[Download]:https://github.com/LaloMrtnz/Chain/releases
+[Download]:https://github.com/LaloMrtnz/Chain/releases/latest
 [Features]:https://github.com/LaloMrtnz/Chain#features
 [Usage]:https://github.com/LaloMrtnz/Chain#usage
 [Changelog]:https://github.com/LaloMrtnz/Chain/releases
