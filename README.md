@@ -52,7 +52,7 @@ If you have an idea for a new feature, [create a new Issue](https://github.com/L
 * Created with lots of ♥️ by [Lalo](https://twitter.com/L__A__L__O) 
 
 # Like it? 
-If you find Chain useful, consider supporting it's development. 
+If you find Chain useful, consider supporting its development. 
 
 [Donate 😎](https://www.paypal.me/LaloMrtnz/5usd) 
 
