@@ -103,7 +103,7 @@ class Chain {
 
 	static transformColor(guideColor, chainedColor, type, value) {
 
-	  let h = type == "Hue" ? Chain.addHue(guideColor.hue(), value) : chainedColor.hue(), 
+	  let h = type == "Hue" ? Chain.normalizeHue(guideColor.hue(), value) : chainedColor.hue(), 
 	      s = type == "Saturation" ? guideColor.saturation() * value : chainedColor.saturation(),
 	      b = type == "Brightness" ? guideColor.brightness() * value : chainedColor.brightness(),
 	      a = type == "Alpha" ? guideColor.alpha() * value : chainedColor.alpha();
@@ -111,8 +111,8 @@ class Chain {
 	  return MSColor.colorWithHue_saturation_brightness_alpha(h, s ,b, a);
 	}
 	//Makes the value wrap between 0 and 1. 
-	static addHue(hue, transform) {
-	  let addition = hue + transform; 
+	static normalizeHue(hue, transform) {
+	  let addition = hue + transform - 1; 
 	  if (addition > 1) {
 	    return addition - 1;
 	  } else if (addition < 0) {
