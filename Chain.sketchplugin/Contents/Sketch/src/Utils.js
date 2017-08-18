@@ -15,7 +15,7 @@ let each = function(array, handler) {
 }
 
 let map = function(array, handler) {
-  var newArray = [NSMutableArray array];
+  var newArray = NSMutableArray.alloc().init();
   each(array, function(item) {
    var object = handler(item);
    if (object) {
