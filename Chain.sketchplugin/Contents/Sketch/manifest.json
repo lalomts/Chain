@@ -3,7 +3,7 @@
   "description": "Dynamic color relations inside Sketch.",
   "author": "Lalo Mrtnz",
   "homepage": "https://github.com/LaloMrtnz/Chain",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "appcast": "https://raw.githubusercontent.com/LaloMrtnz/Chain/master/appcast.xml",
   "identifier": "com.lalomrtnz.sketch.chain",
   "compatibleVersion": "42",
