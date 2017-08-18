@@ -28,5 +28,16 @@
         </description>
         <enclosure url="https://github.com/LaloMrtnz/Chain/archive/v0.9.1.zip" sparkle:version="0.9.1" />
       </item>
+    <item>
+        <title>Chain v0.9.2</title>
+        <description>
+          <![CDATA[
+            <ul>
+              <li>Now works on previous versions of OSX.</li>
+            </ul>
+          ]]>
+        </description>
+        <enclosure url="https://github.com/LaloMrtnz/Chain/archive/v0.9.2.zip" sparkle:version="0.9.2" />
+      </item>
   </channel>
 </rss>
