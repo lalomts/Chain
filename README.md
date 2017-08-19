@@ -58,6 +58,12 @@ If you find Chain useful, consider supporting its development.
 [Donate 😎](https://www.paypal.me/LaloMrtnz/5usd) 
 
 
+## Install with Sketch Runner
+With Sketch Runner, just go to the `install` command and search for `Chain`. Runner allows you to manage plugins and do much more to speed up your workflow in Sketch. [Download Runner here](http://www.sketchrunner.com).
+
+![Sketch Runner Chain](Runner%20Install%20Chain.png)
+
+
 [Download]:https://github.com/LaloMrtnz/Chain/releases/latest
 [Features]:https://github.com/LaloMrtnz/Chain#features
 [Usage]:https://github.com/LaloMrtnz/Chain#usage
